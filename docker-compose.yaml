@@ -12,8 +12,6 @@ services:
           ENSURE_NAMENODE_DIR: "/tmp/hadoop-root/dfs/name"
    datanode:
       image: flokkr/hadoop-hdfs-datanode:latest
-      links:
-         - namenode
       deploy:
          mode: global
       env_file:
@@ -31,9 +29,6 @@ services:
       image: flokkr/hadoop-yarn-nodemanager:latest
       deploy:
          mode: global
-      links:
-         - resourcemanager
-         - namenode
       env_file:
         - ./compose-config
 
