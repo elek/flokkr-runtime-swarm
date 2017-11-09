@@ -1,0 +1,32 @@
+version: "3"
+services:
+   namenode:
+      image: flokkr/hadoop-hdfs-namenode:ozone
+      hostname: namenode
+      ports:
+         - 9870
+      env_file:
+        - ./compose-config
+      environment:
+          ENSURE_NAMENODE_DIR: "/tmp/hadoop-hdfs/dfs/name"
+   datanode:
+      image: flokkr/hadoop-hdfs-datanode:ozone
+      env_file:
+        - ./compose-config
+   ksm:
+      image: flokkr/hadoop-hdfs-namenode:ozone
+      hostname: ksm
+      ports:
+         - 9874
+      env_file:
+          - ./compose-config
+      command: ["/opt/hadoop/bin/hdfs","ksm"]
+   scm:
+      hostname: scm
+      image: flokkr/hadoop-hdfs-namenode:ozone
+      ports:
+         - 9876
+      env_file:
+          - ./compose-config
+      command: ["/opt/hadoop/bin/hdfs","scm"]
+
