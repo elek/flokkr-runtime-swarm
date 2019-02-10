@@ -1,3 +1,7 @@
+# !Archived!
+
+> This project is archived. Originally it was part of the https://github.com/flokkr project, but it's no longer maintained.
+
 # Runnng Apache Hadoop/Spark/other bigdata on Docker swarm
 
 This repository contains example configuration and docker definition to run the flokkr docker images (Hadoop/Spark/Hive/...) on docker swarm cluster. 
